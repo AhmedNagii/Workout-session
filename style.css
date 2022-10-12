@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root{
+
+  --clr-dark:#222831;
+  --clr-lightdark:#393E46;
+  --clr-light: #EEEEEE;
+  --clr-orange:#FD7014;
+}
+
+
+body{
+  background-color: var(--clr-lightdark);
+}
+
+.header{
+  background-color:var(--clr-orange);
+  color: var(--clr-light);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 0 0 30% 30%;
+}
+
+
+.main-button {
+  background-color: var(--clr-orange);
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 31px;
+  height: 130px;
+  width: 130px;
+  box-shadow: 0 2px 4px var(--clr-light);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 30%;
+}
+
+.main-button:hover,
+.main-button:focus{
+    background-color: #fd7114a6;
+}
