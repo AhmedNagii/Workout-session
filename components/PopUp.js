@@ -1,6 +1,6 @@
-export default function ExerciseItem(itemName , repetitions ,id){
+export default function ExerciseItem(itemName , repetitions ){
     return `
-    <li id="${id}" class="exercise-item">
+    <li class="exercise-item">
     <h2>${itemName} * ${repetitions}</h2>
     <span>
       <img src="assets/edit.png" class="edit-icon" />

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Blinker:wght@700&family=Roboto:wght@400;900&display=swap');
+
+
 *,
 *::before,
 *::after{
@@ -15,7 +18,12 @@
 
 
 body{
-  background-color: var(--clr-lightdark);
+  background-color: var(--clr-dark);
+  font-family: 'Blinker', sans-serif;
+}
+
+li{
+  list-style: none;
 }
 
 .header{
@@ -41,7 +49,125 @@ body{
   border-radius: 30%;
 }
 
-.main-button:hover,
-.main-button:focus{
-    background-color: #fd7114a6;
+
+
+
+
+
+
+/*  */
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+
+.exercise-list{
+  width: 40%;
+  
+}
+
+.exercise-item{
+  display:flex ;
+  justify-content: space-between;
+  background-color: #EEEEEE;
+  width: 100%;
+  min-width: 200px;
+  padding: .5em;
+}
+
+.add-item-btn{
+  background-color: #eeeeee21;
+  color: var(--clr-light);
+  width: 40%;
+  
+  border: rgba(255, 255, 255, 0.404) 2px dashed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  }
+  
+  .main-button:hover,
+  .main-button:focus{
+      background-color: #fd7114a6;
+  }
+
+  
+.delete-icon{
+  height: 40px;
+}
+
+.edit-icon{
+  height: 35px;
+}
+ .add-icon{
+  height: 50px;
+
+} 
+
+/* pop up style */
+
+ .popUp-container{
+  background-color: rgb(0, 0, 0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0;
+  pointer-events: none;
+}
+.popUp-container.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popUp-form{
+  color: #222831;;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 1rem;
+background-color: #fff;
+max-width: 100%;
+text-align: center;
+padding: 2em 3em;
+border-radius: 1rem;
+}
+
+
+
+.popUp__input{
+  padding: .6em .5em;
+  border-radius: 5px;
+  width: 100%;
+}
+.popUp__add-btn,
+.popUp__cancel-btn{
+border: 0;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgb(0, 0, 0,0.2);
+font-size: 14px;
+padding: .6em 1.5em;
+
+}
+
+.popUp_btns{
+  align-self: flex-end;
+ 
+}
+
+.popUp__add-btn{background-color: #FD7014;}
+.popUp__cancel-btn{background-color: rgb(223, 96, 96); } 
+.row{
+  display: flex;
+justify-content: center;
+  gap: 1em;
+ 
 }

@@ -4,16 +4,62 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Vite App</title>
   </head>
   <body>
-    
     <header class="header">
       <h1>Workout session</h1>
     </header>
-    
-    <!-- <button class="main-button">Start</button> -->
-    <script src="/main.js"></script>
+    <main class="main-container">
+      <ul class="exercise-list">
+      
+      </ul>
+      <button class="add-item-btn">
+        <img class="add-icon" src="assets/add.png" />
+        <span>Add Exercise</span>
+      </button>
+      <!-- <button class="main-button">Start</button> -->
+    </main>
+
+  
+  
+    <div class="popUp-container">
+      <form class="popUp-form" action="">
+        <h2>Add Exercise</h2>
+
+        
+        <div class="row">
+
+          <div>
+            <label for="exercise_name">Exercise Name</label><br>
+           <input id="exercise_name" class="popUp__input" type="text" placeholder="Exercise name" />
+          
+          </div>
+          <div>
+            <label for="repetitions">Repetes</label><br>
+            <input
+              class="popUp__input"
+              id="repetitions"
+              type="number"
+              placeholder="Repetitions"
+              min="1"
+              max="5"
+              name="repetitions"
+            />
+          
+          </div>
+        </div>
+        
+ 
+
+      <div class="row popUp_btns">
+          <button class="popUp__cancel-btn">Cancel</button>
+          <button class="popUp__add-btn" type="submit">Add</button>
+        </div>
+      </form>
+    </div>
+
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
