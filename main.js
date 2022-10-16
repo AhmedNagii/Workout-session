@@ -10,7 +10,9 @@ const exerciseNameInput = document.getElementById('exercise_name')
 const exerciseList = document.querySelector('.exercise-list')
 const addItemBtn = document.querySelector(".add-item-btn")
 const endMessage = document.querySelector('.end-message')
-
+const circularProgress = document.querySelector('.circular-progress')
+const progressValue = document.querySelector('.progress-value')
+const restBarContainer = document.querySelector('.rest-bar-container')
 
 
 let itemsArr = JSON.parse(localStorage.getItem('items')) || [];
@@ -18,6 +20,7 @@ let itemsArr = JSON.parse(localStorage.getItem('items')) || [];
 let currentId = ""
 let isUpdateList = false
 let mainTimerIsActive = false
+let breakIntervalActive = false
 let minutInterval;
 let timer;
 
@@ -27,7 +30,7 @@ function addEventListeners() {
         event.stopPropagation();  //prevent bubbling
         deleteItem(event)
         editeItem(event)
-        updateItemBg(event)
+        trackProgress(event)
     })
 }
 
@@ -43,15 +46,24 @@ function addItem() {
 }
 
 
-function deleteItem(event) {
-    if (!event.target.matches('.exercise-item')) return;
-    currentId = event.target.dataset.id;
-    const selectedItemReps = itemsArr.filter(item => currentId == item.id)[0].exerciseRepetitions;
-    console.log(selectedItemReps)
-    // we are getting num of reps now we can use it to update the background
-    // event.target.style.background =
-    //     "linear-gradient(to right, " + color_1.value + ", " + color_2.value + ")";
+function trackProgress(event) {
+
+    if (breakIntervalActive == false) {
+
+        if (!event.target.matches('.width-update')) return;
+        console.log("selectedItemReps")
+        currentId = event.target.dataset.id;
+        const selectedItemReps = itemsArr.filter(item => currentId == item.id);
+        console.log(selectedItemReps)
+        let width = 25
+        event.target.style.width = `${width + 25}%`;
+        console.log(event.target)
+        console.log(event.target.style.width)
+        updateBreakBar()
+    }
+
 }
+
 
 
 function editeItem(event) {
@@ -78,7 +90,7 @@ function updateItem(slectedId) {
 
 
 
-function updateItemBg(event) {
+function deleteItem(event) {
     if (!event.target.matches('.delete-icon')) return;
     const id = event.target.dataset.id;
     console.log(id)
@@ -106,18 +118,11 @@ popUpCancelBtn.addEventListener('click', (e) => {
 })
 
 
-
-
-
 function removePopUp() {
     exerciseNameInput.value = ""
     repetitionsInput.value = ""
     popUpContainer.classList.remove('show')
 }
-
-
-
-
 
 function renderItems() {
     displayItems();
@@ -134,17 +139,6 @@ function displayItems() {
 
 renderItems()
 
-
-
-
-
-
-
-
-
-
-
-
 function startTimer() {
 
     let minutes = 0
@@ -160,7 +154,7 @@ function startTimer() {
 
     }
 
-    minutInterval = setInterval(function () {
+    minutInterval = setInterval(() => {
         seconds++
         timer = `
         <span>${minutes > 10 ? minutes : `0${minutes}`}</span>:<span>${updateTimer()}</span>
@@ -169,6 +163,7 @@ function startTimer() {
     }, 1000);
     mainTimerIsActive = true
 }
+
 
 function endTimer() {
     clearInterval(minutInterval)
@@ -179,10 +174,32 @@ function endTimer() {
     mainTimerIsActive = false
 }
 
-
-
 startBtn.addEventListener('click', () => {
-    console.log(mainTimerIsActive)
     mainTimerIsActive ? endTimer() : startTimer()
-
 })
+
+
+function updateBreakBar() {
+    let startingTime = 30
+    let startingValue = 0
+    breakIntervalActive = true
+
+    restBarContainer.classList.add('show')
+    const restInterval = setInterval(() => {
+        startingValue++
+        startingTime--
+        progressValue.textContent = `${startingTime}`
+        console.log(startingValue * 3)
+        circularProgress.style.background = `conic-gradient(#7d2ae8 ${startingValue * 12}deg, #ededed 0deg)`
+
+        if (startingTime == 0) {
+            clearInterval(restInterval)
+            restBarContainer.classList.remove('show')
+            breakIntervalActive = false
+        }
+
+
+    }, 1000)
+
+}
+

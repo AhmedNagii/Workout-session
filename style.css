@@ -82,15 +82,12 @@ li {
 .exercise-item {
   display: flex;
   justify-content: space-between;
-
-  background: linear-gradient(to right,
-      white 0%,
-      white 100%);
+  background: var(--clr-light);
   width: 100%;
   min-width: 200px;
   padding: .5em;
   margin-bottom: 1rem;
-  border-bottom: 3px solid var(--clr-orange);
+
 }
 
 .add-item-btn {
@@ -111,10 +108,12 @@ li {
 
 .delete-icon {
   height: 30px;
+  cursor: pointer;
 }
 
 .edit-icon {
   height: 25px;
+  cursor: pointer;
 }
 
 .add-icon {
@@ -198,4 +197,99 @@ li {
 .end-message {
   text-align: center;
   color: var(--clr-light);
+}
+
+
+.progressbar,
+.progress {
+
+  height: 100%;
+  border-radius: 1rem;
+
+}
+
+.progressbar {
+  min-width: 100px;
+  border: 2px #FD7014 solid;
+  cursor: pointer;
+}
+
+
+
+.progress {
+  color: #FD7014;
+
+  background-color: #222831;
+
+}
+
+.width-update {
+  width: 33%;
+
+  border: 2px black solid;
+}
+
+.progress>h3 {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-left: 2em;
+}
+
+
+.rest-bar-container {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  display: flex;
+  width: 150px;
+  padding: 20px 0;
+  border-radius: 8px;
+  background-color: var(--clr-orange);
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rest-bar-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.circular-progress {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background: conic-gradient(#7d2ae8 3.6deg, #ededed 0deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  background-color: #393E46;
+
+}
+
+.progress-value {
+  position: relative;
+  color: #EEEEEE;
+  font-size: 60px;
+}
+
+
+
+.break-bar-text {
+  color: var(--clr-light);
+  font-size: 30px;
+  font-weight: 500;
 }
