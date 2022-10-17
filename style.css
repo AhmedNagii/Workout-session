@@ -27,12 +27,25 @@ li {
   list-style: none;
 }
 
+/* general style */
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+
+}
+
 .header {
   background-color: var(--clr-orange);
   color: var(--clr-light);
   padding: 2rem;
   text-align: center;
   border-radius: 0 0 30% 30%;
+}
+
+.end-message {
+  text-align: center;
+  color: var(--clr-light);
 }
 
 
@@ -50,12 +63,6 @@ li {
   border-radius: 30%;
 }
 
-
-
-
-
-
-
 /*  */
 .main-container {
   display: flex;
@@ -66,6 +73,8 @@ li {
   padding: 2rem;
 }
 
+
+/* exercises list and items */
 
 .exercise-list {
   width: 60%;
@@ -156,8 +165,6 @@ li {
   border-radius: 1rem;
 }
 
-
-
 .popUp__input {
   padding: .6em .5em;
   border-radius: 5px;
@@ -187,55 +194,23 @@ li {
   background-color: rgb(223, 96, 96);
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-
-}
-
-.end-message {
-  text-align: center;
-  color: var(--clr-light);
-}
-
-
-.progressbar,
-.progress {
-
-  height: 100%;
-  border-radius: 1rem;
-
-}
+/* progressbar */
 
 .progressbar {
-  min-width: 100px;
+  color: #FD7014;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-radius: 1rem;
+  width: 100px;
   border: 2px #FD7014 solid;
   cursor: pointer;
+  /* background: linear-gradient(to right, black 0%, white 0%); */
 }
 
 
-
-.progress {
-  color: #FD7014;
-
-  background-color: #222831;
-
-}
-
-.width-update {
-  width: 33%;
-
-  border: 2px black solid;
-}
-
-.progress>h3 {
-  position: relative;
-  top: 0;
-  left: 0;
-  margin-left: 2em;
-}
-
+/* break progressbar */
 
 .rest-bar-container {
   position: absolute;
@@ -285,8 +260,6 @@ li {
   color: #EEEEEE;
   font-size: 60px;
 }
-
-
 
 .break-bar-text {
   color: var(--clr-light);
