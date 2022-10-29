@@ -35,12 +35,39 @@ li {
 
 }
 
-.header {
+header {
   background-color: var(--clr-orange);
   color: var(--clr-light);
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
-  border-radius: 0 0 30% 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  color: rgb(42, 67, 82);
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  gap: 2em;
+}
+
+.nav__list-item {
+  text-decoration: none;
+  font-size: 21px;
+  color: #EEEEEE;
+}
+
+.nav__list-item:hover,
+.nav__list-item:focus {
+  color: #222831;
+}
+
+.active {
+  border-bottom: 1px solid white;
 }
 
 .end-message {
@@ -172,7 +199,8 @@ li {
 }
 
 .popUp__save-btn,
-.popUp__cancel-btn {
+.popUp__cancel-btn,
+.popUp__edit-btn {
   border: 0;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgb(0, 0, 0, 0.2);
@@ -183,16 +211,29 @@ li {
 
 .popUp_btns {
   align-self: flex-end;
+}
 
+.edit {
+  background-color: #e0b497;
 }
 
 .popUp__save-btn {
   background-color: #FD7014;
 }
 
+
 .popUp__cancel-btn {
   background-color: rgb(223, 96, 96);
 }
+
+
+.popUp-form__error-message {
+  color: red;
+  font-weight: 100;
+  display: none;
+}
+
+
 
 /* progressbar */
 

@@ -1,4 +1,4 @@
-import { itemsArr } from "./mainOpreations";
+import { itemsArr, renderItems } from "./mainOpreations";
 
 
 const startBtn = document.querySelector(".start-button");
@@ -14,13 +14,19 @@ let timer;
 
 
 startBtn.addEventListener("click", () => {
-    mainTimerIsActive ? endTimer() : startTimer();
+    if (mainTimerIsActive) {
+        window.removeEventListener("beforeunload", dialogValue);
+        endTimer()
+    } else {
+        startTimer();
+        window.addEventListener("beforeunload", dialogValue);
+    }
 });
 
 
 
 
-export function updateCompletionBar() {
+export function breakTimer() {
     let startingTime = 30;
     let startingValue = 0;
     breakIntervalActive = true;
@@ -29,8 +35,7 @@ export function updateCompletionBar() {
         startingValue++;
         startingTime--;
         progressValue.textContent = `${startingTime}`;
-
-        circularProgress.style.background = `conic-gradient(#7d2ae8 ${startingValue * 20
+        circularProgress.style.background = `conic-gradient(#7d2ae8 ${startingValue * 12
             }deg, #ededed 0deg)`;
 
         if (startingTime == 0) {
@@ -56,6 +61,7 @@ function startTimer() {
         startBtn.innerHTML = timer + "<h3>Finish</h3>";
     }, 1000);
     mainTimerIsActive = true;
+
 }
 
 function endTimer() {
@@ -63,6 +69,7 @@ function endTimer() {
     startBtn.textContent = `Start`;
     endMessage.innerHTML = `<h1>You have spent ${timer} today</h1>`;
     mainTimerIsActive = false;
+
 }
 
 function updateTimerText(seconds, minutes) {
@@ -80,16 +87,26 @@ function updateTimerText(seconds, minutes) {
 export function trackProgress(event) {
     if (breakIntervalActive == false) {
         if (!event.target.matches(".progressbar")) return;
-        let currentId = event.target.dataset.id;
-        const selectedItem = itemsArr.filter((item) => currentId == item.id);
-        const reps = selectedItem[0].exerciseReps
-        const increaseValue = 100 / reps
-        if (selectedItem[0].completion < 100) {
-            selectedItem[0].completion += increaseValue
-            updateCompletionBar();
+        const currentId = event.target.dataset.id;
+        const selectedItem = itemsArr.filter((item) => currentId == item.id)[0];
+        let increaseValue = 100 / selectedItem.exerciseReps
+        if (selectedItem.completedReps < selectedItem.exerciseReps) {
+            selectedItem.completedReps++
+            selectedItem.completionPercentage += increaseValue
+            renderItems()
+            breakTimer();
+        } else {
+            return
         }
-        event.target.textContent = `${selectedItem[0].completion.toFixed(0)}%`
+        event.target.textContent = `${selectedItem.completionPercentage}%`
         event.target.style.background =
-            `linear-gradient(to right, #393E46 ${selectedItem[0].completion}%, white 0%)`;
+            `linear-gradient(to right, #393E46 ${selectedItem.completionPercentage}%, white 0%)`;
     }
+}
+
+function dialogValue(event) {
+
+    event.preventDefault();
+    event.returnValue = 'You will lose the timer progress!';
+
 }

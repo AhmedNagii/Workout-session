@@ -1,3 +1,4 @@
+
 export const exerciseList = document.querySelector(".exercise-list");
 export const repetitionsInput = document.getElementById("repetitions");
 export const exerciseNameInput = document.getElementById("exercise_name");
@@ -12,3 +13,7 @@ export function addEventListeners(fun) {
 
     });
 }
+
+
+
+

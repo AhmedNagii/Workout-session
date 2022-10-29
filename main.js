@@ -2,9 +2,7 @@
 import { renderItems } from "./mainOpreations";
 import { trackProgress } from "./timersController";
 
-
 //  have an issue with "isUpdateList" var so we can work with it 
-
 
 
 
@@ -14,7 +12,6 @@ document.body.addEventListener("click", (event) => {
     trackProgress(event)
 })
 
-renderItems()
 
 
 
@@ -27,5 +24,5 @@ const options = {
 };
 
 
-fetch('https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises', options)
-    .then(res => res.json()).then(data => console.log(data))
+// fetch('https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises', options)
+//     .then(res => res.json()).then(data => console.log(data))

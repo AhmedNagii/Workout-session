@@ -1,31 +1,38 @@
+
 import ExerciseItem from "./components/ExerciseItem";
 import {
     repetitionsInput,
     exerciseNameInput,
     popUpContainer,
     exerciseList,
-
 } from "./constants"
 
 
+
 export let itemsArr = JSON.parse(localStorage.getItem("items")) || [];
-export let isEditing = false;
-export let currentId = ""
+
+let currentId = ""
 const popUpCancelBtn = document.querySelector(".popUp__cancel-btn");
 const popUpSaveBtn = document.querySelector(".popUp__save-btn");
 const addItemBtn = document.querySelector(".add-item-btn");
+const popUpEditBtn = document.querySelector(".popUp__edit-btn");
+const validationErrorMessage = document.querySelector(".popUp-form__error-message")
 
 
-addItemBtn.addEventListener("click", () => {
-
+addItemBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     popUpContainer.classList.add("show");
+    popUpEditBtn.style.display = "none"
+    popUpSaveBtn.style.display = "block"
 });
 
 popUpSaveBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    isEditing ? updateItemsUi(currentId) : addItem();
+    checkInput(repetitionsInput, exerciseNameInput) && addItem()
 });
+
+
 
 popUpCancelBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -35,47 +42,54 @@ popUpCancelBtn.addEventListener("click", (e) => {
 });
 
 
+popUpEditBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    checkInput(repetitionsInput, exerciseNameInput) && updateItemsUi(currentId)
+
+})
 
 
-
-export function addItem() {
+function addItem() {
 
     itemsArr.push({
         exerciseName: exerciseNameInput.value,
         exerciseReps: repetitionsInput.value,
-        completion: 0,
+        completedReps: 0,
+        completionPercentage: 0,
         id: Math.floor(Math.random() * 100),
     });
     removePopUp();
     displayItems()
-    isEditing = false
+
 }
 
 
-export function deleteItem(event) {
+function deleteItem(event) {
     if (!event.target.matches(".delete-icon")) return;
     const id = event.target.dataset.id;
     itemsArr = itemsArr.filter((item) => item.id !== Number(id));
-    console.log(itemsArr)
     renderItems();
 }
 
+function editeItem(event) {
 
-export function editeItem(event) {
     if (!event.target.matches(".edit-icon")) return;
-    currentId = event.target.dataset.id;
-    const selectItem = itemsArr.filter((item) => currentId == item.id);
-    exerciseNameInput.value = selectItem[0].exerciseName;
-    repetitionsInput.value = Number(selectItem[0].exerciseReps);
+    let secltedItem = selectedItem(event)
+    exerciseNameInput.value = secltedItem.exerciseName;
+    repetitionsInput.value = Number(secltedItem.exerciseReps);
     popUpContainer.classList.add("show");
-    isEditing = true;
+
+    popUpEditBtn.style.display = "block"
+    popUpSaveBtn.style.display = "none"
 }
 
-export function updateItemsUi(slectedId) {
+function updateItemsUi(slectedId) {
     itemsArr.map((item) => {
         if (item.id === Number(slectedId)) {
             item.exerciseName = exerciseNameInput.value;
             item.exerciseReps = repetitionsInput.value;
+            item.completionPercentage = 0
+            item.completionPercentage = 100 / item.exerciseReps * item.completedReps
         }
         return item;
     });
@@ -86,11 +100,15 @@ export function updateItemsUi(slectedId) {
 
 
 export function renderItems() {
-    console.log('render')
     saveItems()
     displayItems()
 }
 
+export function selectedItem(event) {
+    currentId = event.target.dataset.id;
+    let selectItem = itemsArr.filter((item) => currentId == item.id);
+    return selectItem[0]
+}
 
 function saveItems() {
     localStorage.setItem("items", JSON.stringify(itemsArr));
@@ -98,8 +116,12 @@ function saveItems() {
 
 
 function displayItems() {
+    console.log(itemsArr.length)
+    console.log(itemsArr)
+    exerciseList.innerHTML = itemsArr.length ?
+        itemsArr.map((item) => ExerciseItem(item)).join("")
+        : ""
 
-    exerciseList.innerHTML = itemsArr.map((item) => ExerciseItem(item)).join("");
     addEventListeners()
 }
 
@@ -119,3 +141,16 @@ function addEventListeners() {
 
     });
 }
+
+function checkInput(numInput, textInput) {
+    if (textInput.value.length < 2 || numInput.value === "") {
+        validationErrorMessage.style.display = "block"
+        return false
+    } else {
+        validationErrorMessage.style.display = "none"
+        return true
+    }
+}
+
+
+renderItems()

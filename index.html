@@ -6,13 +6,16 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <title>Vite App</title>
+  <title>Workout session</title>
+  <meta name="description" content="">
 </head>
 
 <body>
-  <header class="header">
-    <h1>Workout session</h1>
+  <header>
+    <h2 class="logo">Logo</h2>
+
   </header>
+
   <main class="main-container">
     <ul class="exercise-list"></ul>
     <button class="add-item-btn">
@@ -44,7 +47,10 @@
         </select>
       </div>
 
+      <p class="popUp-form__error-message">Please fill both text boxes</p>
+
       <button type="submit" class="popUp__save-btn">Save</button>
+      <button type="submit" class="popUp__edit-btn">Edit</button>
       <button class="popUp__cancel-btn">Cancel</button>
     </form>
   </div>
@@ -58,7 +64,7 @@
     <span class="break-bar-text">Have A Rest</span>
   </div>
 
-  <script type="module" src="/main.js"></script>
+  <script type="module" src="./main.js"></script>
 </body>
 
 </html>
