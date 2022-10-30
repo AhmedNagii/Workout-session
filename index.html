@@ -7,13 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <title>Workout session</title>
-  <meta name="description" content="">
+
 </head>
 
 <body>
   <header>
     <h2 class="logo">Logo</h2>
-
+    <nav class="main-nav">
+      <a class="nav__link" href="./exercises.html">Exercises</a>
+      <a class="nav__link" href="/instructions.html">Instructions</a>
+      <a class="nav__link" href="/index.html">Home</a>
+    </nav>
   </header>
 
   <main class="main-container">
@@ -28,6 +32,7 @@
     </div>
   </main>
 
+
   <div class="popUp-container">
     <form class="popUp-form" action="">
       <div>
@@ -38,7 +43,8 @@
 
       <div>
         <label for="repetitions">Reps</label><br />
-        <select required class="popUp__input" id="repetitions" name="repetitions">
+        <select class="popUp__input" id="repetitions" name="repetitions" aria-placeholder="One">
+          <option value="" selected disabled hidden>choose</option>
           <option value="1">One</option>
           <option value="2">Two</option>
           <option value="3">Three</option>
@@ -64,7 +70,8 @@
     <span class="break-bar-text">Have A Rest</span>
   </div>
 
-  <script type="module" src="./main.js"></script>
+
+  <script type="module" src="/main.js"></script>
 </body>
 
 </html>

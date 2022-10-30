@@ -35,6 +35,8 @@ li {
 
 }
 
+
+
 header {
   background-color: var(--clr-orange);
   color: var(--clr-light);
@@ -48,21 +50,21 @@ header {
   color: rgb(42, 67, 82);
 }
 
-.nav {
+.main-nav {
   display: flex;
   justify-content: flex-start;
-  flex-direction: row-reverse;
-  gap: 2em;
+  gap: 2rem;
 }
 
-.nav__list-item {
+
+.nav__link {
   text-decoration: none;
   font-size: 21px;
   color: #EEEEEE;
 }
 
-.nav__list-item:hover,
-.nav__list-item:focus {
+.nav__link:hover,
+.nav__link:focus {
   color: #222831;
 }
 
@@ -247,7 +249,7 @@ header {
   width: 100px;
   border: 2px #FD7014 solid;
   cursor: pointer;
-  /* background: linear-gradient(to right, black 0%, white 0%); */
+
 }
 
 

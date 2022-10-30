@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Blinker:wght@700&family=Roboto:wght@400;900&display=swap');
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --clr-dark: #222831;
+    --clr-lightdark: #393E46;
+    --clr-light: #EEEEEE;
+    --clr-orange: #FD7014;
+}
+
+body {
+    background-color: var(--clr-dark);
+    font-family: 'Blinker', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+.exercises-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 1em;
+}
+
+.search-input {
+    max-width: 500px;
+    width: 100%;
+    padding: 1em 1.5em;
+    background-color: #c0c0c0;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    color: #393E46;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.search:hover,
+.search:focus {
+    border: #ededed 1px solid;
+}
+
+.raw {
+    display: flex;
+}
+
+.exercises-list__item {
+    max-width: 700px;
+    width: 100%;
+    background-color: #ededed;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.items-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 1em 1.5em;
+    gap: 2em;
+    background-color: #f86604c2;
+    border-radius: 2rem;
+    color: #ededed;
+}
+
+.item__instructions {
+    padding: 1em;
+}
+
+@media (max-width: 650px) {
+    .items-container {
+        flex-wrap: wrap;
+        padding: .5em 1em;
+        gap: 1rem;
+    }
+}

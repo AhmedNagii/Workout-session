@@ -116,8 +116,7 @@ function saveItems() {
 
 
 function displayItems() {
-    console.log(itemsArr.length)
-    console.log(itemsArr)
+
     exerciseList.innerHTML = itemsArr.length ?
         itemsArr.map((item) => ExerciseItem(item)).join("")
         : ""
