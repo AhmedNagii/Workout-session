@@ -15,26 +15,27 @@
 
 
     <main class="exercises-page">
-        <div class="raw">
+        <form class="selectors raw">
 
-
-            <select class="filter-input">
+            <select id="muscle-selector" class="filter-input" required>
                 <option value="" selected disabled hidden>choose a muscle</option>
                 <option value="abdominals">Abdominals</option>
                 <option value="middle_back">Middle back</option>
                 <option value="lats">Lats</option>
-                <option value="Biceps">Biceps</option>
+                <option value="biceps">Biceps</option>
                 <option value="calves">Clves</option>
                 <option value="chest">chest</option>
                 <option value="triceps">Triceps</option>
             </select>
-            <select class="">
-                <option value="filter-input" selected disabled hidden>choose a difficulty</option>
+            <select id="difficulty-selector" class="filter-input" required>
+                <option value="" selected disabled hidden>choose a difficulty</option>
                 <option value="beginner">Beginner</option>
                 <option value="intermediate">Intermediate</option>
                 <option value="expert">Expert</option>
             </select>
-        </div>
+
+            <button type="submit" id="get-exerciese-btn">Get Exercises</button>
+        </form>
         <ul class="exercises-list">
 
         </ul>

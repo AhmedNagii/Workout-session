@@ -83,13 +83,18 @@ header {
   color: white;
   border: none;
   padding: 5px;
-  font-size: 31px;
-  height: 130px;
-  width: 130px;
+  font-size: 21px;
+  height: 100px;
+  width: 100px;
   box-shadow: 0 2px 4px var(--clr-light);
   cursor: pointer;
   transition: all 0.2s ease;
   border-radius: 30%;
+}
+
+.start-button:hover,
+.start-button:focus {
+  font-size: 25px;
 }
 
 /*  */
@@ -138,11 +143,6 @@ header {
   align-items: center;
   gap: 1em;
 }
-
-.start-button:hover {
-  background-color: #fd7114a6;
-}
-
 
 .delete-icon {
   height: 30px;
