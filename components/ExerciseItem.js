@@ -8,8 +8,8 @@ export default function ExerciseItem(item) {
     <li  class="exercise-item" >
    
     <h2>${exerciseName} × ${exerciseReps}</h2>
-    <span class="row">
-    <span >
+    <span class="row exercise-item-control">
+    <span>
     <img  src="assets/edit.png"    class="edit-icon" data-id=${id} />
     <img  src="assets/delete.png" class="delete-icon" data-id=${id} />
     

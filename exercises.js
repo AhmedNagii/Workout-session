@@ -6,6 +6,8 @@ const exercisesList = document.querySelector('.exercises-list')
 const difficultySelector = document.getElementById('difficulty-selector')
 const muscleSelector = document.getElementById('muscle-selector')
 const getBtn = document.getElementById('get-exerciese-btn')
+const loader = document.querySelector('.loader')
+const hint = document.querySelector('.hint')
 const options = {
     method: 'GET',
     headers: {
@@ -17,8 +19,13 @@ const options = {
 
 getBtn.addEventListener("click", (event) => {
     event.preventDefault()
-    const fullUrl = `${URL}?difficulty=${difficultySelector.value}&muscle=${muscleSelector.value}`
-    getApiData(fullUrl, options)
+
+    const isVaildInput = checkInput(difficultySelector, muscleSelector)
+    if (isVaildInput) {
+
+        const fullUrl = `${URL}?difficulty=${difficultySelector.value}&muscle=${muscleSelector.value}`
+        getApiData(fullUrl, options)
+    }
 })
 
 
@@ -26,6 +33,7 @@ getBtn.addEventListener("click", (event) => {
 async function getApiData(fullUrl, options) {
 
     try {
+        loader.classList.add("show-loader");
         const response = await fetch(fullUrl, options)
         if (response.status >= 200 && response.status <= 299) {
             const data = await response.json()
@@ -41,5 +49,25 @@ async function getApiData(fullUrl, options) {
                 There is an error occurred<br/>
                 Please try later Or check your internet connection </h2>
             </li>`
+
+        loader.classList.remove("show-loader");
     }
 }
+
+function checkInput(Input1, Input2) {
+    if (Input1.value == "" || Input2.value == "") {
+        hint.style.display = "block"
+        return false
+    } else {
+        hint.style.display = "none"
+        return true
+    }
+}
+
+
+/*
+
+1-sturcher insturactions page
+1-for later inhance your code 
+5
+*/ 

@@ -31,6 +31,7 @@ li {
 .row {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1em;
 
 }
@@ -60,7 +61,8 @@ header {
 .nav__link {
   text-decoration: none;
   font-size: 21px;
-  color: #EEEEEE;
+  color: var(--clr-light);
+  text-shadow: 9px 6px 9px rgba(0, 0, 0, 0.9);
 }
 
 .nav__link:hover,
@@ -70,6 +72,32 @@ header {
 
 .active {
   border-bottom: 1px solid white;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.main-nav.show-menu {
+  display: flex;
+}
+
+
+@media (max-width:500px) {
+  .main-nav {
+    flex-direction: column;
+    margin-top: 3rem;
+    display: none;
+  }
+
+
+  .menu-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
 }
 
 .end-message {
@@ -130,19 +158,20 @@ header {
   min-width: 200px;
   padding: .5em;
   margin-bottom: 1rem;
-
 }
 
 .add-item-btn {
   background-color: #eeeeee21;
   color: var(--clr-light);
   width: 40%;
-  border: rgba(255, 255, 255, 0.404) 2px dashed;
+  border: rgba(25 5, 255, 255, 0.404) 2px dashed;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1em;
 }
+
+
 
 .delete-icon {
   height: 30px;
@@ -158,6 +187,8 @@ header {
   height: 50px;
 
 }
+
+
 
 /* pop up style */
 
@@ -256,11 +287,13 @@ header {
 /* break progressbar */
 
 .rest-bar-container {
+
+
   position: absolute;
-  top: 50px;
-  left: 50px;
   display: flex;
-  width: 150px;
+  bottom: 20px;
+  left: 20px;
+  width: 100px;
   padding: 20px 0;
   border-radius: 8px;
   background-color: var(--clr-orange);
@@ -278,34 +311,89 @@ header {
 
 .circular-progress {
   position: relative;
-  height: 200px;
-  width: 200px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   background: conic-gradient(#7d2ae8 3.6deg, #ededed 0deg);
   display: flex;
   justify-content: center;
   align-items: center;
-
+  font-size: 1rem;
 }
+
 
 .circular-progress::before {
   content: "";
   position: absolute;
-  height: 180px;
-  width: 180px;
   border-radius: 50%;
   background-color: #393E46;
-
+  height: 60px;
+  width: 60px;
+  font-size: 1rem;
 }
+
+
+
+
 
 .progress-value {
   position: relative;
   color: #EEEEEE;
-  font-size: 60px;
+  font-size: 1.5rem;
 }
 
 .break-bar-text {
   color: var(--clr-light);
-  font-size: 30px;
+  font-size: 1.2rem;
   font-weight: 500;
+}
+
+.go-back-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 2em;
+}
+
+
+@media (max-width: 900px) {
+
+
+
+
+  .circular-progress {
+    height: 100px;
+    width: 100px;
+  }
+
+  .circular-progress {}
+
+}
+
+
+
+@media (max-width: 500px) {
+  .add-item-btn {
+    width: 80%;
+
+  }
+
+  .exercise-item {
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: .3em;
+  }
+
+  .progressbar {
+    width: 60%;
+  }
+
+  .exercise-item-control {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+
+  }
 }

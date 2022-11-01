@@ -45,13 +45,12 @@ li {
 
 .filter-input {
     padding: 1em 2em;
-    background-color: #c0c0c0;
+    background-color: var(--clr-light);
     border-radius: 10px;
     outline: none;
     border: none;
-    color: #393E46;
+    color: var(--clr-lightdark);
     text-align: center;
-
     cursor: pointer;
 }
 
@@ -71,9 +70,9 @@ li {
 }
 
 #get-exerciese-btn {
-    background-color: #FD7014;
+    background-color: var(--clr-orange);
     font-weight: bold;
-    color: #ededed;
+    color: var(--clr-light);
     border-radius: 1rem;
     padding: 1em 2em;
     cursor: pointer;
@@ -92,10 +91,17 @@ li {
     flex-direction: column;
 }
 
+.hint {
+    color: #ec9696;
+    margin: 1em;
+    text-align: center;
+    display: none;
+}
+
 .exercises-list__item {
     max-width: 700px;
     width: 100%;
-    background-color: #ededed;
+    background-color: var(--clr-light);
     border-radius: 2rem;
     margin-top: 1rem;
     text-align: center;
@@ -109,7 +115,7 @@ li {
     gap: 2em;
     background-color: #f86604c2;
     border-radius: 2rem;
-    color: #ededed;
+    color: var(--clr-light);
 }
 
 .item__instructions {
@@ -126,10 +132,51 @@ li {
 
 
 .failure-message {
-    color: #ededed;
+    color: var(--clr-light);
     text-align: center;
     font-weight: 300;
     line-height: 2rem;
     white-space: 2px;
     word-spacing: 3px;
+}
+
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.75s, visibility 0.75s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.show-loader {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    border: 15px solid #dddd;
+    border-top-color: #7449f5;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn)
+    }
 }
