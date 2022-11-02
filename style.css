@@ -164,6 +164,7 @@ header {
   background-color: #eeeeee21;
   color: var(--clr-light);
   width: 40%;
+  min-width: 150px;
   border: rgba(25 5, 255, 255, 0.404) 2px dashed;
   display: flex;
   justify-content: center;
@@ -350,27 +351,12 @@ header {
 
 .go-back-btn {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   margin: 2em;
+
+  border-radius: 50%;
 }
-
-
-@media (max-width: 900px) {
-
-
-
-
-  .circular-progress {
-    height: 100px;
-    width: 100px;
-  }
-
-  .circular-progress {}
-
-}
-
-
 
 @media (max-width: 500px) {
   .add-item-btn {

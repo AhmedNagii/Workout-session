@@ -19,6 +19,8 @@ startBtn.addEventListener("click", () => {
         endTimer()
     } else {
         startTimer();
+        startBtn.disabled = true;
+        setTimeout(() => startBtn.disabled = false, 2000)
         window.addEventListener("beforeunload", dialogValue);
     }
 });

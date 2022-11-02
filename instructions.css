@@ -1,0 +1,28 @@
+.main-container {
+    padding: 2rem;
+    color: #eeeeee;
+
+
+}
+
+.insturaction-img {
+    width: 90px;
+    max-height: 100px;
+    padding: 1em;
+
+}
+
+.insturaction-text {
+    font-size: 1.5rem;
+    text-align: center;
+    max-width: 300px;
+}
+
+.line {
+    border: none;
+    height: 2px;
+    color: #ccc;
+    background-color: #ccc;
+    text-align: left;
+    width: 10rem;
+}
