@@ -22,7 +22,7 @@ The app is used to track your gym session activities it has 3 pages one for the 
 
 ## install
 
-1-git clone https://github.com/AhmedNagii/My-Reads.git
-2-Navigate to the my-reads folder.
-3-Run npm install to install dependencies.
-4-(npm run dev) to start the development server.
+- git clone https://github.com/AhmedNagii/My-Reads.git
+- Navigate to the my-reads folder.
+- Run npm install to install dependencies.
+- (npm run dev) to start the development server.
