@@ -67,11 +67,11 @@ header {
 
 .nav__link:hover,
 .nav__link:focus {
-  color: #222831;
+  color: var(--clr-dark);
 }
 
 .active {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--clr-light);
 }
 
 .menu-icon {
@@ -213,13 +213,12 @@ header {
 }
 
 .popUp-form {
-  color: #222831;
-  ;
+  color: var(--clr-dark);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  background-color: #fff;
+  background-color: var(--clr-light);
   max-width: 100%;
   text-align: center;
   padding: 2em 3em;
@@ -252,7 +251,7 @@ header {
 }
 
 .popUp__save-btn {
-  background-color: #FD7014;
+  background-color: var(--clr-orange);
 }
 
 
@@ -272,14 +271,14 @@ header {
 /* progressbar */
 
 .progressbar {
-  color: #FD7014;
+  color: var(--clr-orange);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   border-radius: 1rem;
   width: 100px;
-  border: 2px #FD7014 solid;
+  border: 2px var(--clr-orange) solid;
   cursor: pointer;
 
 }
@@ -327,7 +326,7 @@ header {
   content: "";
   position: absolute;
   border-radius: 50%;
-  background-color: #393E46;
+  background-color: var(--clr-lightdark);
   height: 60px;
   width: 60px;
   font-size: 1rem;
@@ -339,7 +338,7 @@ header {
 
 .progress-value {
   position: relative;
-  color: #EEEEEE;
+  color: var(--clr-light);
   font-size: 1.5rem;
 }
 
@@ -351,11 +350,10 @@ header {
 
 .go-back-btn {
   position: absolute;
-  top: 0;
-  left: 0;
-  margin: 2em;
-
-  border-radius: 50%;
+  bottom: 3em;
+  left: 1.5em;
+  height: 20px;
+  width: 30px;
 }
 
 @media (max-width: 500px) {

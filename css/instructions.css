@@ -1,15 +1,12 @@
 .main-container {
-    padding: 2rem;
+    margin-top: 3rem;
     color: #eeeeee;
-
-
 }
 
 .insturaction-img {
     width: 90px;
     max-height: 100px;
     padding: 1em;
-
 }
 
 .insturaction-text {
